@@ -1,10 +1,4 @@
 <template>
-    <input
-    type="text"
-    v-model="searchText"
-    placeholder="Cerca..."
-    class="form-control my-3 search-bar"
-    />
     <!-- Group List -->
     <Draggable
         v-model="$root.publicGroupList"
@@ -13,14 +7,26 @@
         :animation="100"
     >
         <template #item="group">
-            <div class="mb-5 ">
-                <!-- Group Title -->
-                <h2 class="group-title">
-                    <font-awesome-icon v-if="editMode && showGroupDrag" icon="arrows-alt-v" class="action drag me-3" />
-                    <font-awesome-icon v-if="editMode" icon="times" class="action remove me-3" @click="removeGroup(group.index)" />
-                    <Editable v-model="group.element.name" :contenteditable="editMode" tag="span" />
-                </h2>
-
+            <div class="mb-5">
+                <div class="flex-div">
+                    <!-- Group Title -->
+                    <h2 class="group-title ms-2">
+                        <font-awesome-icon v-if="editMode && showGroupDrag" icon="arrows-alt-v" class="action drag me-3" />
+                        <font-awesome-icon v-if="editMode" icon="times" class="action remove me-3" @click="removeGroup(group.index)" />
+                        <Editable v-model="group.element.name" :contenteditable="editMode" tag="span" />
+                    </h2>
+                    <div class="inner-flex-div">
+                        <input
+                            type="text"
+                            v-model="searchText"
+                            placeholder="Cerca..."
+                            class="form-control my-3 search-bar me-3"
+                        />
+                        <button class="btn btn-info me-2" @click="refreshPage">
+                            Aggiorna
+                        </button>
+                    </div>
+                </div>
                 <div class="shadow-box monitor-list mt-4 position-relative">
                     <div v-if="group.element.monitorList.length === 0" class="text-center no-monitor-msg">
                         {{ $t("No Monitors") }}
@@ -209,6 +215,9 @@ export default {
                 return monitor?.name?.toLowerCase().includes(search);
             });
         },
+        refreshPage() {
+            window.location.reload();
+        },
     }
 };
 </script>
@@ -287,9 +296,18 @@ export default {
 }
 
 .search-bar {
-    width: 15rem;
+    width: 16rem;
+}
+
+.flex-div {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inner-flex-div {
+    display: flex;
+    align-items: center;
 }
 
 </style>

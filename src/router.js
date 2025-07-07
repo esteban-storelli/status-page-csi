@@ -35,7 +35,7 @@ import About from "./components/settings/About.vue";
 const routes = [
     {
         path: "/",
-        component: Entry,
+        redirect: "/status/csi",
     },
     {
         // If it is "/dashboard", the active link is not working
