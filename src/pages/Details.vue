@@ -67,7 +67,7 @@
             <div class="shadow-box">
                 <div class="row">
                     <div class="col-md-8">
-                        <HeartbeatBar :monitor-id="monitor.id" />
+                        <HeartbeatBar :monitor-id="monitor.id" size="medium" />
                         <span class="word">{{ $t("checkEverySecond", [ monitor.interval ]) }}</span>
                     </div>
                     <div class="col-md-4 text-center">

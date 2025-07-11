@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div :key="$root.userHeartbeatBar" class="col-3 col-md-4 big-row">
-                                        <HeartbeatBar size="mid" :monitor-id="monitor.element.id" />
+                                        <HeartbeatBar size="large" :monitor-id="monitor.element.id" />
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@ export default {
 }
 
 .big-row {
-    width: 800px;
+    width: 925px;
 }
 
 </style>

@@ -248,12 +248,7 @@ export default {
     methods: {
         /** Resize the heartbeat bar */
         resize() {
-            if (this.$refs.wrap) {
-                this.maxBeat = Math.min(
-                    this.beatList.length,
-                    Math.floor(this.$refs.wrap.clientWidth / (this.beatWidth + this.beatMargin * 2))
-                );
-            }
+            this.maxBeat = Math.floor(this.$refs.wrap.clientWidth / (10 * 2));
         },
 
         /**
@@ -274,8 +269,6 @@ export default {
 @import "../assets/vars.scss";
 
 .wrap {
-    overflow: hidden;
-    width: 100%;
     white-space: nowrap;
 }
 
@@ -307,7 +300,7 @@ export default {
             transform: scale(var(--hover-scale));
         }
         display: flex;
-        height: 28px !important;
+        height: 30px !important;
         padding: 7.6px;
         align-items: flex-start;
         gap: 8px;
