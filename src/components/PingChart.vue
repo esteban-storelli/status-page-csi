@@ -186,7 +186,7 @@ export default {
                         x,
                         y: (beat.status === DOWN || beat.status === MAINTENANCE || beat.status === PENDING) ? 1 : 0,
                     });
-                    colorData.push((beat.status === MAINTENANCE) ? "rgba(23,71,245,0.41)" : ((beat.status === PENDING) ? "rgba(245,182,23,0.41)" : "#DC354568"));
+                    colorData.push((beat.status === MAINTENANCE) ? "rgba(23,71,245,0.41)" : ((beat.status === PENDING) ? "rgba(245,182,23,0.41)" : "#dc111f68"));
                 });
 
             return {
@@ -196,8 +196,8 @@ export default {
                         data: pingData,
                         fill: "origin",
                         tension: 0.2,
-                        borderColor: "#5CDD8B",
-                        backgroundColor: "#5CDD8B38",
+                        borderColor: "#1dab8b",
+                        backgroundColor: "#1dab8b38",
                         yAxisID: "y",
                         label: "ping",
                     },

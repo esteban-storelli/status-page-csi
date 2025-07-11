@@ -44,9 +44,9 @@
                     >
                         <template #item="monitor">
                             <div class="item">
-                                <div class="row">
+                                <div class="column-flex">
                                     <div class="col-9 col-md-8 small-padding">
-                                        <div class="info">
+                                        <div class="info column-flex">
                                             <font-awesome-icon v-if="editMode" icon="arrows-alt-v" class="action drag me-3" />
                                             <font-awesome-icon v-if="editMode" icon="times" class="action remove me-3" @click="removeMonitor(group.index, monitor.index)" />
 
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div :key="$root.userHeartbeatBar" class="col-3 col-md-4">
+                                    <div :key="$root.userHeartbeatBar" class="col-3 col-md-4 big-row">
                                         <HeartbeatBar size="mid" :monitor-id="monitor.element.id" />
                                     </div>
                                 </div>
@@ -308,6 +308,15 @@ export default {
 .inner-flex-div {
     display: flex;
     align-items: center;
+}
+
+.column-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.big-row {
+    width: 800px;
 }
 
 </style>

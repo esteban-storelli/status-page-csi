@@ -14,7 +14,7 @@
             v-if="!$root.isMobile && size !== 'small' && beatList.length > 4 && $root.styleElapsedTime !== 'none'"
             class="d-flex justify-content-between align-items-center word" :style="timeStyle"
         >
-            <div>{{ timeSinceFirstBeat }} ago</div>
+            <div>{{ timeSinceFirstBeat }} fa</div>
             <div v-if="$root.styleElapsedTime === 'with-line'" class="connecting-line"></div>
             <div>{{ timeSinceLastBeat }}</div>
         </div>
@@ -165,9 +165,9 @@ export default {
             const firstValidBeat = this.shortBeatList.at(this.numPadding);
             const minutes = dayjs().diff(dayjs.utc(firstValidBeat?.time), "minutes");
             if (minutes > 60) {
-                return (minutes / 60).toFixed(0) + "h";
+                return (minutes / 60).toFixed(0) + " h";
             } else {
-                return minutes + "m";
+                return minutes + " min";
             }
         },
 
@@ -186,11 +186,11 @@ export default {
             }
 
             if (seconds < tolerance) {
-                return "now";
+                return "adesso";
             } else if (seconds < 60 * 60) {
-                return (seconds / 60).toFixed(0) + "m ago";
+                return (seconds / 60).toFixed(0) + " min fa";
             } else {
-                return (seconds / 60 / 60).toFixed(0) + "h ago";
+                return (seconds / 60 / 60).toFixed(0) + " h fa";
             }
         }
     },
@@ -205,6 +205,11 @@ export default {
             },
             deep: true,
         },
+        beatList(newList) {
+            if (newList && newList.length) {
+                this.resize();
+            }
+        }
     },
     unmounted() {
         window.removeEventListener("resize", this.resize);
@@ -244,7 +249,10 @@ export default {
         /** Resize the heartbeat bar */
         resize() {
             if (this.$refs.wrap) {
-                this.maxBeat = Math.floor(this.$refs.wrap.clientWidth / (this.beatWidth + this.beatMargin * 2));
+                this.maxBeat = Math.min(
+                    this.beatList.length,
+                    Math.floor(this.$refs.wrap.clientWidth / (this.beatWidth + this.beatMargin * 2))
+                );
             }
         },
 
@@ -275,7 +283,6 @@ export default {
     .beat {
         display: inline-block;
         background-color: $primary;
-        border-radius: $border-radius;
 
         &.empty {
             background-color: aliceblue;
@@ -293,12 +300,22 @@ export default {
             background-color: $maintenance;
         }
 
+
         &:not(.empty):hover {
             transition: all ease-in-out 0.15s;
             opacity: 0.8;
             transform: scale(var(--hover-scale));
         }
+        display: flex;
+        height: 28px !important;
+        padding: 7.6px;
+        align-items: flex-start;
+        gap: 8px;
+        flex: 1 0 0;
+        border-radius: 4px;
     }
+    display: flex;
+    flex-direction: row;
 }
 
 .dark {

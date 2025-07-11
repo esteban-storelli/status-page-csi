@@ -77,7 +77,7 @@ export default {
 
         className() {
             if (this.pill) {
-                return `badge rounded-pill bg-${this.color}`;
+                return `percentage`;
             }
 
             return "";
@@ -97,5 +97,19 @@ export default {
 <style>
 .badge {
     min-width: 62px;
+}
+.percentage {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    border-radius: 2px;
+    background: #DBDFE6;
+    width: 3.38rem;
+    height: 1.38rem;
+    justify-content: center;
+    line-height: 20px;
 }
 </style>
