@@ -252,7 +252,7 @@
             </div>
 
             <!-- Overall Status -->
-            <div class="list p-4 overall-status mb-4">
+            <div class="list overall-status">
                 <div v-if="Object.keys($root.publicMonitorList).length === 0 && loadedData">
                     <font-awesome-icon icon="question-circle" class="ok" />
                     {{ $t("No Services") }}
@@ -1311,13 +1311,6 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 4px;
-}
-
-.unset {
-    text-decoration: none;
-    border: none;
-    background: none;
-    font-weight: inherit;
 }
 
 .subtitle {
