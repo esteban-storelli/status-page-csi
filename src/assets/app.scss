@@ -11,6 +11,10 @@
     letter-spacing: 0.08px;
 }
 
+// * {
+//   box-shadow: none !important;
+// }
+
 h1 {
     font-size: 32px;
 }
@@ -479,6 +483,7 @@ optgroup {
         padding: 13px 15px 10px 15px;
         border-radius: 10px;
         transition: all ease-in-out 0.15s;
+        border-top: 1px solid #DBDFE6;
 
         &.disabled {
             opacity: 0.3;

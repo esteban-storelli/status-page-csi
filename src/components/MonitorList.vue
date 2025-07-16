@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow-box mb-3" :style="boxStyle">
+    <div class="shadowbox mb-3" :style="boxStyle">
         <div class="list-header">
             <div class="header-top">
                 <button class="btn btn-outline-normal ms-2" :class="{ 'active': selectMode }" type="button" @click="selectMode = !selectMode">

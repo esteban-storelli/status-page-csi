@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { bottom } from "@popperjs/core";
 import dayjs from "dayjs";
 
 export default {
@@ -300,7 +301,7 @@ export default {
             transform: scale(var(--hover-scale));
         }
         display: flex;
-        height: 30px !important;
+        height: 28px !important;
         padding: 7.6px;
         align-items: flex-start;
         gap: 8px;

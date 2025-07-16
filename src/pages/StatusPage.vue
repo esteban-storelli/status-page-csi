@@ -151,25 +151,36 @@
                     <div class="logo">
                         <img src="/frame.svg">
                     </div>
-                    <div class="actions">
-                        <div class="modify">
-                            <button class="unset" @click="edit">{{ $t("Edit Status Page") }}</button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9.24995 22L8.84995 18.8C8.63328 18.7167 8.42912 18.6167 8.23745 18.5C8.04578 18.3833 7.85828 18.2583 7.67495 18.125L4.69995 19.375L1.94995 14.625L4.52495 12.675C4.50828 12.5583 4.49995 12.4458 4.49995 12.3375V11.6625C4.49995 11.5542 4.50828 11.4417 4.52495 11.325L1.94995 9.375L4.69995 4.625L7.67495 5.875C7.85828 5.74167 8.04995 5.61667 8.24995 5.5C8.44995 5.38333 8.64995 5.28333 8.84995 5.2L9.24995 2H14.75L15.15 5.2C15.3666 5.28333 15.5708 5.38333 15.7625 5.5C15.9541 5.61667 16.1416 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4916 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1416 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.24995ZM12.05 15.5C13.0166 15.5 13.8416 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8416 8.84167 13.0166 8.5 12.05 8.5C11.0666 8.5 10.2375 8.84167 9.56245 9.525C8.88745 10.2083 8.54995 11.0333 8.54995 12C8.54995 12.9667 8.88745 13.7917 9.56245 14.475C10.2375 15.1583 11.0666 15.5 12.05 15.5ZM12.05 13.5C11.6333 13.5 11.2791 13.3542 10.9875 13.0625C10.6958 12.7708 10.55 12.4167 10.55 12C10.55 11.5833 10.6958 11.2292 10.9875 10.9375C11.2791 10.6458 11.6333 10.5 12.05 10.5C12.4666 10.5 12.8208 10.6458 13.1125 10.9375C13.4041 11.2292 13.55 11.5833 13.55 12C13.55 12.4167 13.4041 12.7708 13.1125 13.0625C12.8208 13.3542 12.4666 13.5 12.05 13.5ZM11 20H12.975L13.325 17.35C13.8416 17.2167 14.3208 17.0208 14.7625 16.7625C15.2041 16.5042 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4166 13.0458 17.45 12.7875C17.4833 12.5292 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.4708 17.45 11.2125C17.4166 10.9542 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2041 7.49583 14.7625 7.2375C14.3208 6.97917 13.8416 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.67912 6.97917 9.23745 7.2375C8.79578 7.49583 8.39162 7.80833 8.02495 8.175L5.54995 7.15L4.57495 8.85L6.72495 10.45C6.64162 10.7 6.58328 10.95 6.54995 11.2C6.51662 11.45 6.49995 11.7167 6.49995 12C6.49995 12.2667 6.51662 12.525 6.54995 12.775C6.58328 13.025 6.64162 13.275 6.72495 13.525L4.57495 15.15L5.54995 16.85L8.02495 15.8C8.39162 16.1833 8.79578 16.5042 9.23745 16.7625C9.67912 17.0208 10.1583 17.2167 10.675 17.35L11 20Z" fill="#0D0F13"/>
-                            </svg>
+                    <div class="actions" v-if="hasToken">
+                        <div class="actions" v-if="!enableEditMode">
+                            <div class="modify">
+                                <button class="unset" @click="edit">{{ $t("Edit Status Page") }}</button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9.24995 22L8.84995 18.8C8.63328 18.7167 8.42912 18.6167 8.23745 18.5C8.04578 18.3833 7.85828 18.2583 7.67495 18.125L4.69995 19.375L1.94995 14.625L4.52495 12.675C4.50828 12.5583 4.49995 12.4458 4.49995 12.3375V11.6625C4.49995 11.5542 4.50828 11.4417 4.52495 11.325L1.94995 9.375L4.69995 4.625L7.67495 5.875C7.85828 5.74167 8.04995 5.61667 8.24995 5.5C8.44995 5.38333 8.64995 5.28333 8.84995 5.2L9.24995 2H14.75L15.15 5.2C15.3666 5.28333 15.5708 5.38333 15.7625 5.5C15.9541 5.61667 16.1416 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4916 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1416 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.24995ZM12.05 15.5C13.0166 15.5 13.8416 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8416 8.84167 13.0166 8.5 12.05 8.5C11.0666 8.5 10.2375 8.84167 9.56245 9.525C8.88745 10.2083 8.54995 11.0333 8.54995 12C8.54995 12.9667 8.88745 13.7917 9.56245 14.475C10.2375 15.1583 11.0666 15.5 12.05 15.5ZM12.05 13.5C11.6333 13.5 11.2791 13.3542 10.9875 13.0625C10.6958 12.7708 10.55 12.4167 10.55 12C10.55 11.5833 10.6958 11.2292 10.9875 10.9375C11.2791 10.6458 11.6333 10.5 12.05 10.5C12.4666 10.5 12.8208 10.6458 13.1125 10.9375C13.4041 11.2292 13.55 11.5833 13.55 12C13.55 12.4167 13.4041 12.7708 13.1125 13.0625C12.8208 13.3542 12.4666 13.5 12.05 13.5ZM11 20H12.975L13.325 17.35C13.8416 17.2167 14.3208 17.0208 14.7625 16.7625C15.2041 16.5042 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4166 13.0458 17.45 12.7875C17.4833 12.5292 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.4708 17.45 11.2125C17.4166 10.9542 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2041 7.49583 14.7625 7.2375C14.3208 6.97917 13.8416 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.67912 6.97917 9.23745 7.2375C8.79578 7.49583 8.39162 7.80833 8.02495 8.175L5.54995 7.15L4.57495 8.85L6.72495 10.45C6.64162 10.7 6.58328 10.95 6.54995 11.2C6.51662 11.45 6.49995 11.7167 6.49995 12C6.49995 12.2667 6.51662 12.525 6.54995 12.775C6.58328 13.025 6.64162 13.275 6.72495 13.525L4.57495 15.15L5.54995 16.85L8.02495 15.8C8.39162 16.1833 8.79578 16.5042 9.23745 16.7625C9.67912 17.0208 10.1583 17.2167 10.675 17.35L11 20Z" fill="#0D0F13"/>
+                                </svg>
+                            </div>
+                            <div class="dashboard">
+                                <a class="unset" href="/manage-status-page">{{ $t("Go to Dashboard") }}</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z" fill="#0D0F13"/>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="dashboard">
-                             <a class="unset" href="/manage-status-page">{{ $t("Go to Dashboard") }}</a>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z" fill="#0D0F13"/>
-                            </svg>
-                        </div>
+                        <div v-else>
+                        <button class="btn btn-primary btn-add-group me-2" @click="createIncident">
+                            <font-awesome-icon icon="bullhorn" />
+                            {{ $t("Create Incident") }}
+                        </button>
+                    </div>
                     </div>
                 </div>
             </div>
+            <div class="subtitle">
+                Stato dei servizi
+            </div>
 
             <!-- Admin functions -->
-            <div v-if="hasToken" class="mb-4">
+            <!-- <div v-if="hasToken" class="mb-4">
                 <div v-if="!enableEditMode">
                     <button class="btn btn-info me-2" @click="edit">
                         <font-awesome-icon icon="edit" />
@@ -180,15 +191,7 @@
                         <font-awesome-icon icon="tachometer-alt" />
                         {{ $t("Go to Dashboard") }}
                     </a>
-                </div>
-
-                <div v-else>
-                    <button class="btn btn-primary btn-add-group me-2" @click="createIncident">
-                        <font-awesome-icon icon="bullhorn" />
-                        {{ $t("Create Incident") }}
-                    </button>
-                </div>
-            </div>
+                </div> -->
 
             <!-- Incident -->
             <div v-if="incident !== null" class="shadow-box alert mb-4 p-4 incident" role="alert" :class="incidentClass">
@@ -249,7 +252,7 @@
             </div>
 
             <!-- Overall Status -->
-            <div class="shadow-box list  p-4 overall-status mb-4">
+            <div class="list p-4 overall-status mb-4">
                 <div v-if="Object.keys($root.publicMonitorList).length === 0 && loadedData">
                     <font-awesome-icon icon="question-circle" class="ok" />
                     {{ $t("No Services") }}
@@ -262,8 +265,17 @@
                     </div>
 
                     <div v-else-if="partialDown">
-                        <font-awesome-icon icon="exclamation-circle" class="warning" />
-                        {{ $t("Partially Degraded Service") }}
+                        <!-- <font-awesome-icon icon="exclamation-circle" class="warning" /> -->
+                        <div class="warning-box">
+                            <div class="warning-icon-box">
+                            <svg class="warning" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M2 42L24 4L46 42H2ZM8.9 38H39.1L24 12L8.9 38ZM24 36C24.5667 36 25.0417 35.8083 25.425 35.425C25.8083 35.0417 26 34.5667 26 34C26 33.4333 25.8083 32.9583 25.425 32.575C25.0417 32.1917 24.5667 32 24 32C23.4333 32 22.9583 32.1917 22.575 32.575C22.1917 32.9583 22 33.4333 22 34C22 34.5667 22.1917 35.0417 22.575 35.425C22.9583 35.8083 23.4333 36 24 36ZM22 30H26V20H22V30Z" fill="white"/>
+                            </svg>
+                            </div>
+                            <div class="warning-title-box">
+                            {{ $t("Partially Degraded Service") }}
+                            </div>
+                        </div>
                     </div>
 
                     <div v-else-if="allDown">
@@ -1255,12 +1267,17 @@ footer {
     background: #FFF;
 
     margin: 0 auto;
+
+    box-shadow: 0 15px 70px rgba(0, 0, 0, 0.1);
+
+    outline: 25px solid #FFF;
 }
 
 .header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-bottom: 1px solid #DBDFE6;
 }
 
 .logo-and-actions {
@@ -1270,9 +1287,6 @@ footer {
     padding: 0px 48px;
     justify-content: space-between;
     align-items: center;
-
-    border-bottom: 1px solid #DBDFE6;
-    background: #FFF;
 }
 
 .logo {
@@ -1304,6 +1318,47 @@ footer {
     border: none;
     background: none;
     font-weight: inherit;
+}
+
+.subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 40px;
+    gap: 4px;
+    font-size: 18px;
+    border-bottom: 1px solid #DBDFE6;
+}
+
+.warning-box {
+    display: flex;
+    padding: 64px 48px;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid #DBDFE6;
+}
+
+.warning-icon-box {
+    background-color: $warning;
+    display: flex;
+    width: 96px;
+    padding: 24px 8px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.warning-title-box {
+    display: flex;
+    padding: 24px;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 0px 4px 4px 0px;
+    background: #F0F2F4;
 }
 
 </style>

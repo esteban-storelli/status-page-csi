@@ -105,11 +105,16 @@ export default {
     gap: 8px;
     align-self: stretch;
     flex-wrap: wrap;
-    border-radius: 2px;
     background: #DBDFE6;
-    width: 3.38rem;
-    height: 1.38rem;
     justify-content: center;
+    padding: 0px 4px;
+    width: fit-content;
+    margin-bottom: 13px;
+    border-radius: 2px;
+    font-size: 14px;
     line-height: 20px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.07px;
 }
 </style>

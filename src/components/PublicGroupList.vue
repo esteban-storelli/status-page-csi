@@ -27,7 +27,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="shadow-box monitor-list mt-4 position-relative">
+                <div class="monitor-list mt-4 position-relative">
                     <div v-if="group.element.monitorList.length === 0" class="text-center no-monitor-msg">
                         {{ $t("No Monitors") }}
                     </div>
@@ -43,7 +43,7 @@
                         item-key="id"
                     >
                         <template #item="monitor">
-                            <div class="item">
+                            <div class="item status-page-item-list">
                                 <div class="column-flex">
                                     <div class="col-9 col-md-8 small-padding">
                                         <div class="info column-flex">
@@ -246,10 +246,22 @@ export default {
 }
 
 .item-name {
-    padding-left: 5px;
-    padding-right: 5px;
+    // padding-left: 5px;
+    // padding-right: 5px;
+    // margin: 0;
+    // display: inline-block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    align-self: stretch;
+    overflow: hidden;
+    color:#0D0F13;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    line-height: 30px;
     margin: 0;
-    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .btn-link {
@@ -317,6 +329,11 @@ export default {
 
 .big-row {
     width: 925px;
+}
+
+.status-page-item-list {
+    display: inline-block;
+    margin-bottom: 22px;
 }
 
 </style>
