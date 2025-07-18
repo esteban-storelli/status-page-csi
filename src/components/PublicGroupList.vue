@@ -357,6 +357,7 @@ export default {
 .status-page-item-list {
     display: inline-block;
     margin-bottom: 22px;
+    margin-left: 30px;
 }
 
 .refresh-button {
