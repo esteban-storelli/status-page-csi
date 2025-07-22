@@ -339,10 +339,10 @@ export default {
 
 .refresh-container {
     display: flex;
-    padding: 32px 48px 0px 48px;
+    padding-right: 48px;
     align-items: flex-end;
     align-self: stretch;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .column-flex {
