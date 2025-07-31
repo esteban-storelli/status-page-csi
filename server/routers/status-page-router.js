@@ -129,9 +129,9 @@ router.get("/api/status-page/:slug/manifest.json", cache("1440 minutes"), async 
             "display": "standalone",
             "icons": [
                 {
-                    "src": statusPage.icon,
-                    "sizes": "128x128",
-                    "type": "image/png"
+                    "src": "/favicon.ico?v4",
+                    "sizes": "48x48",
+                    "type": "image/x-icon"
                 }
             ]
         });
