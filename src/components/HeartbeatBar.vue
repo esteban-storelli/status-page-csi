@@ -12,7 +12,7 @@
         </div>
         <div
             v-if="!$root.isMobile && size !== 'small' && beatList.length > 4 && $root.styleElapsedTime !== 'none'"
-            class="d-flex justify-content-between align-items-center word" :style="timeStyle"
+            class="d-flex justify-content-between align-items-center word time-indicators" :style="timeStyle"
         >
             <div>{{ timeSinceFirstBeat }} fa</div>
             <div v-if="$root.styleElapsedTime === 'with-line'" class="connecting-line"></div>
@@ -335,4 +335,9 @@ export default {
         background-color: #333;
     }
 }
+
+.time-indicators {
+    font-weight: normal;
+}
+
 </style>

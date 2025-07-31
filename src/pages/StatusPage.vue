@@ -175,9 +175,11 @@
                     </div>
                 </div>
             </div>
+            <div class="full-width-border"></div>
             <div class="subtitle">
                 Stato dei servizi
             </div>
+            <div class="full-width-border"></div>
 
             <!-- Admin functions -->
             <!-- <div v-if="hasToken" class="mb-4">
@@ -266,8 +268,14 @@
                                 <path d="M10.6 17.1L17.65 10.05L16.25 8.65L10.6 14.3L7.75 11.45L6.35 12.85L10.6 17.1ZM12 22.5C10.6167 22.5 9.31667 22.2375 8.1 21.7125C6.88333 21.1875 5.825 20.475 4.925 19.575C4.025 18.675 3.3125 17.6167 2.7875 16.4C2.2625 15.1833 2 13.8833 2 12.5C2 11.1167 2.2625 9.81667 2.7875 8.6C3.3125 7.38333 4.025 6.325 4.925 5.425C5.825 4.525 6.88333 3.8125 8.1 3.2875C9.31667 2.7625 10.6167 2.5 12 2.5C13.3833 2.5 14.6833 2.7625 15.9 3.2875C17.1167 3.8125 18.175 4.525 19.075 5.425C19.975 6.325 20.6875 7.38333 21.2125 8.6C21.7375 9.81667 22 11.1167 22 12.5C22 13.8833 21.7375 15.1833 21.2125 16.4C20.6875 17.6167 19.975 18.675 19.075 19.575C18.175 20.475 17.1167 21.1875 15.9 21.7125C14.6833 22.2375 13.3833 22.5 12 22.5Z" fill="white"/>
                             </svg>
                             </div>
-                            <div class="status-title-box">
-                            {{ $t("All Systems Operational") }}
+                            <div class="status-title-wrapper">
+                                <div class="status-title-box">
+                                {{ $t("All Systems Operational") }}
+                                </div>
+                                <div class="refresh-info">
+                                    <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
+                                    <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -280,8 +288,14 @@
                                 <path d="M2 42L24 4L46 42H2ZM8.9 38H39.1L24 12L8.9 38ZM24 36C24.5667 36 25.0417 35.8083 25.425 35.425C25.8083 35.0417 26 34.5667 26 34C26 33.4333 25.8083 32.9583 25.425 32.575C25.0417 32.1917 24.5667 32 24 32C23.4333 32 22.9583 32.1917 22.575 32.575C22.1917 32.9583 22 33.4333 22 34C22 34.5667 22.1917 35.0417 22.575 35.425C22.9583 35.8083 23.4333 36 24 36ZM22 30H26V20H22V30Z" fill="white"/>
                             </svg>
                             </div>
-                            <div class="status-title-box">
-                            {{ $t("Partially Degraded Service") }}
+                            <div class="status-title-wrapper">
+                                <div class="status-title-box">
+                                {{ $t("Partially Degraded Service") }}
+                                </div>
+                                <div class="refresh-info">
+                                    <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
+                                    <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -293,8 +307,14 @@
                                 <path d="M12 17.5C12.2833 17.5 12.5208 17.4042 12.7125 17.2125C12.9042 17.0208 13 16.7833 13 16.5C13 16.2167 12.9042 15.9792 12.7125 15.7875C12.5208 15.5958 12.2833 15.5 12 15.5C11.7167 15.5 11.4792 15.5958 11.2875 15.7875C11.0958 15.9792 11 16.2167 11 16.5C11 16.7833 11.0958 17.0208 11.2875 17.2125C11.4792 17.4042 11.7167 17.5 12 17.5ZM11 13.5H13V7.5H11V13.5ZM12 22.5C10.6167 22.5 9.31667 22.2375 8.1 21.7125C6.88333 21.1875 5.825 20.475 4.925 19.575C4.025 18.675 3.3125 17.6167 2.7875 16.4C2.2625 15.1833 2 13.8833 2 12.5C2 11.1167 2.2625 9.81667 2.7875 8.6C3.3125 7.38333 4.025 6.325 4.925 5.425C5.825 4.525 6.88333 3.8125 8.1 3.2875C9.31667 2.7625 10.6167 2.5 12 2.5C13.3833 2.5 14.6833 2.7625 15.9 3.2875C17.1167 3.8125 18.175 4.525 19.075 5.425C19.975 6.325 20.6875 7.38333 21.2125 8.6C21.7375 9.81667 22 11.1167 22 12.5C22 13.8833 21.7375 15.1833 21.2125 16.4C20.6875 17.6167 19.975 18.675 19.075 19.575C18.175 20.475 17.1167 21.1875 15.9 21.7125C14.6833 22.2375 13.3833 22.5 12 22.5ZM12 20.5C14.2333 20.5 16.125 19.725 17.675 18.175C19.225 16.625 20 14.7333 20 12.5C20 10.2667 19.225 8.375 17.675 6.825C16.125 5.275 14.2333 4.5 12 4.5C9.76667 4.5 7.875 5.275 6.325 6.825C4.775 8.375 4 10.2667 4 12.5C4 14.7333 4.775 16.625 6.325 18.175C7.875 19.725 9.76667 20.5 12 20.5Z" fill="white"/>
                             </svg>
                             </div>
-                            <div class="status-title-box">
-                             {{ $t("Degraded Service") }}
+                            <div class="status-title-wrapper">
+                                <div class="status-title-box">
+                                {{ $t("Degraded Service") }}
+                                </div>
+                                <div class="refresh-info">
+                                    <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
+                                    <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -306,8 +326,14 @@
                                 <path d="M18.4999 44L17.6999 37.6C17.2666 37.4333 16.8582 37.2333 16.4749 37C16.0916 36.7667 15.7166 36.5167 15.3499 36.25L9.3999 38.75L3.8999 29.25L9.0499 25.35C9.01657 25.1167 8.9999 24.8917 8.9999 24.675V23.325C8.9999 23.1083 9.01657 22.8833 9.0499 22.65L3.8999 18.75L9.3999 9.25L15.3499 11.75C15.7166 11.4833 16.0999 11.2333 16.4999 11C16.8999 10.7667 17.2999 10.5667 17.6999 10.4L18.4999 4H29.4999L30.2999 10.4C30.7332 10.5667 31.1416 10.7667 31.5249 11C31.9082 11.2333 32.2832 11.4833 32.6499 11.75L38.5999 9.25L44.0999 18.75L38.9499 22.65C38.9832 22.8833 38.9999 23.1083 38.9999 23.325V24.675C38.9999 24.8917 38.9666 25.1167 38.8999 25.35L44.0499 29.25L38.5499 38.75L32.6499 36.25C32.2832 36.5167 31.8999 36.7667 31.4999 37C31.0999 37.2333 30.6999 37.4333 30.2999 37.6L29.4999 44H18.4999ZM24.0999 31C26.0332 31 27.6832 30.3167 29.0499 28.95C30.4166 27.5833 31.0999 25.9333 31.0999 24C31.0999 22.0667 30.4166 20.4167 29.0499 19.05C27.6832 17.6833 26.0332 17 24.0999 17C22.1332 17 20.4749 17.6833 19.1249 19.05C17.7749 20.4167 17.0999 22.0667 17.0999 24C17.0999 25.9333 17.7749 27.5833 19.1249 28.95C20.4749 30.3167 22.1332 31 24.0999 31ZM24.0999 27C23.2666 27 22.5582 26.7083 21.9749 26.125C21.3916 25.5417 21.0999 24.8333 21.0999 24C21.0999 23.1667 21.3916 22.4583 21.9749 21.875C22.5582 21.2917 23.2666 21 24.0999 21C24.9332 21 25.6416 21.2917 26.2249 21.875C26.8082 22.4583 27.0999 23.1667 27.0999 24C27.0999 24.8333 26.8082 25.5417 26.2249 26.125C25.6416 26.7083 24.9332 27 24.0999 27ZM21.9999 40H25.9499L26.6499 34.7C27.6832 34.4333 28.6416 34.0417 29.5249 33.525C30.4082 33.0083 31.2166 32.3833 31.9499 31.65L36.8999 33.7L38.8499 30.3L34.5499 27.05C34.7166 26.5833 34.8332 26.0917 34.8999 25.575C34.9666 25.0583 34.9999 24.5333 34.9999 24C34.9999 23.4667 34.9666 22.9417 34.8999 22.425C34.8332 21.9083 34.7166 21.4167 34.5499 20.95L38.8499 17.7L36.8999 14.3L31.9499 16.4C31.2166 15.6333 30.4082 14.9917 29.5249 14.475C28.6416 13.9583 27.6832 13.5667 26.6499 13.3L25.9999 8H22.0499L21.3499 13.3C20.3166 13.5667 19.3582 13.9583 18.4749 14.475C17.5916 14.9917 16.7832 15.6167 16.0499 16.35L11.0999 14.3L9.1499 17.7L13.4499 20.9C13.2832 21.4 13.1666 21.9 13.0999 22.4C13.0332 22.9 12.9999 23.4333 12.9999 24C12.9999 24.5333 13.0332 25.05 13.0999 25.55C13.1666 26.05 13.2832 26.55 13.4499 27.05L9.1499 30.3L11.0999 33.7L16.0499 31.6C16.7832 32.3667 17.5916 33.0083 18.4749 33.525C19.3582 34.0417 20.3166 34.4333 21.3499 34.7L21.9999 40Z" fill="white"/>
                             </svg>
                             </div>
-                            <div class="status-title-box">
+                            <div class="status-title-wrapper">
+                                <div class="status-title-box">
                                 {{ $t("maintenanceStatus-under-maintenance") }}
+                                </div>
+                                <div class="refresh-info">
+                                    <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
+                                    <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -319,17 +345,22 @@
                                 <path d="M21.2 32C21.2 29.3 21.4417 27.3583 21.925 26.175C22.4083 24.9917 23.4333 23.7 25 22.3C26.3667 21.1 27.4083 20.0583 28.125 19.175C28.8417 18.2917 29.2 17.2833 29.2 16.15C29.2 14.7833 28.7417 13.65 27.825 12.75C26.9083 11.85 25.6333 11.4 24 11.4C22.3 11.4 21.0083 11.9167 20.125 12.95C19.2417 13.9833 18.6167 15.0333 18.25 16.1L13.1 13.9C13.8 11.7667 15.0833 9.91667 16.95 8.35C18.8167 6.78333 21.1667 6 24 6C27.5 6 30.1917 6.975 32.075 8.925C33.9583 10.875 34.9 13.2167 34.9 15.95C34.9 17.6167 34.5417 19.0417 33.825 20.225C33.1083 21.4083 31.9833 22.75 30.45 24.25C28.8167 25.8167 27.825 27.0083 27.475 27.825C27.125 28.6417 26.95 30.0333 26.95 32H21.2ZM24 44C22.9 44 21.9583 43.6083 21.175 42.825C20.3917 42.0417 20 41.1 20 40C20 38.9 20.3917 37.9583 21.175 37.175C21.9583 36.3917 22.9 36 24 36C25.1 36 26.0417 36.3917 26.825 37.175C27.6083 37.9583 28 38.9 28 40C28 41.1 27.6083 42.0417 26.825 42.825C26.0417 43.6083 25.1 44 24 44Z" fill="white"/>
                             </svg>
                             </div>
-                            <div class="status-title-box">
+                            <div class="status-title-wrapper">
+                                <div class="status-title-box">
                                 Stato sconosciuto
+                                </div>
+                                <div class="refresh-info">
+                                    <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
+                                    <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="refresh-info">
-                        <div>{{ $t("Last Updated") }}:  {{ lastUpdateTimeDisplay }}</div>
-                        <div>{{ $tc("statusPageRefreshIn", [ updateCountdownText]) }}</div>
-                    </div>
                 </template>
             </div>
+
+            <br>
+            <br>
 
             <!-- Maintenance -->
             <template v-if="maintenanceList.length > 0">
@@ -398,7 +429,9 @@
             <Editable v-if="enableEditMode" v-model="config.footerText" tag="div" :contenteditable="enableEditMode" :noNL="false" class="alert-heading p-2" />
             <!-- eslint-disable-next-line vue/no-v-html-->
             <div v-if="! enableEditMode" class="alert-heading p-2" v-html="footerHTML"></div>
+            <div class="footer-wrapper">
             <footer class="footer">
+                <div class="footer-content">
                 <div class="footer-top-container">
                     <img src="/frame_dark.svg">
                     <div class="footer-button-container">
@@ -408,6 +441,7 @@
                         </svg>
                     </div>
                 </div>
+                <br class="separator">
                 <div class="footer-bottom-container">
                     <!-- <p v-if="config.showPoweredBy">
                     {{ $t("Powered by") }} <a target="_blank" rel="noopener noreferrer" href="https://github.com/louislam/uptime-kuma">{{ $t("Uptime Kuma" ) }}</a>
@@ -457,7 +491,9 @@
                         <a href="https://www4.ti.ch/tich/informazioni-legali/informazioni-legali" class="unset footer-link">Informazioni legali</a>
                     </div>
                 </div>
+                </div>
             </footer>
+            </div>
         </div>
 
         <Confirm ref="confirmDelete" btn-style="btn-danger" :yes-text="$t('Yes')" :no-text="$t('No')" @yes="deleteStatusPage">
@@ -714,7 +750,8 @@ export default {
         },
 
         lastUpdateTimeDisplay() {
-            return this.$root.datetime(this.lastUpdateTime);
+            // return this.$root.datetime(this.lastUpdateTime);
+            return dayjs(this.lastUpdateTime).format('DD.MM.YYYY HH:mm:ss');
         }
     },
     watch: {
@@ -1337,14 +1374,6 @@ h1 {
     }
 }
 
-.refresh-info {
-    display: flex;
-    padding: 12px 0 48px 48px;
-    flex-direction: column;
-    align-items: flex-start;
-    color: #0D0F13 !important;
-}
-
 .main {
     transition: all ease-in-out 0.1s;
 
@@ -1357,17 +1386,28 @@ h1 {
     display: flex;
     width: 1440px;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     background: #FFF;
-    box-shadow: 0 15px 70px rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 15px 70px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
 }
 
 .header {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-start;
+    background: #FFF;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: 1px solid #DBDFE6;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width-border {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #DBDFE6;
 }
 
 .logo-and-actions {
@@ -1382,16 +1422,17 @@ h1 {
 .logo {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     align-self: stretch;
+    padding-bottom: 0.8rem;
 }
 
 .actions {
     display: flex;
     align-items: center;
     gap: 4px;
-
     color: #0D0F13;
 }
 
@@ -1403,6 +1444,10 @@ h1 {
     gap: 4px;
 }
 
+.modify:hover, .dashboard:hover {
+    background-color: #E7E9EE;
+}
+
 .subtitle {
     display: flex;
     flex-direction: column;
@@ -1410,7 +1455,6 @@ h1 {
     padding: 20px 40px;
     gap: 4px;
     font-size: 18px;
-    border-bottom: 1px solid #DBDFE6;
 }
 
 .status-box {
@@ -1453,25 +1497,53 @@ h1 {
 }
 
 .status-title-box {
+    align-self: stretch;
+}
+
+.status-title-wrapper {
     display: flex;
     padding: 24px;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     flex: 1 0 0;
     align-self: stretch;
-    border-radius: 0px 4px 4px 0px;
     background: #F0F2F4;
+    flex-direction: column;
+}
+
+.refresh-info {
+    align-self: stretch;
+    color: #0D0F13;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.08px;
 }
 
 .footer {
     display: flex;
-    width: 1440px;
-    padding: 0px 48px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     background: #00163C;
-    color: #FFF;
+    position: relative;
+}
+
+.footer-wrapper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.footer-content {
+    width: 1300px;
+}
+
+.separator {
+    padding: 0 20px;
 }
 
 .footer-top-container {
@@ -1490,12 +1562,16 @@ h1 {
     border-radius: 4px;
 }
 
-.footer-top-button, .footer-link, .refresh-info {
+.footer-top-button, .footer-link {
     color: #FFF;
     font-size: 14px;
     font-style: normal;
     line-height: 20px;
     letter-spacing: 0.07px;
+}
+
+.footer-button-container:hover {
+    background-color: #1f3253;
 }
 
 .footer-bottom-container {

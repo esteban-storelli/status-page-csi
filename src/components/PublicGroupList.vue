@@ -32,7 +32,7 @@
                         type="text"
                         v-model="searchText"
                         placeholder="Cerca contenuto"
-                        class="unset search-box"
+                        class="unset search-box big-row"
                     />
                 </div>
                 <div class="monitor-list mt-4 position-relative">
@@ -378,14 +378,15 @@ export default {
     align-self: stretch;
     border-radius: 8px 8px 0px 0px;
     border-bottom: 1px solid #DBDFE6;
-    margin: 48px 0 36px 48px;
+    margin: 48px 0 36px 31px;
+    width: 954px;
 }
 
 .search-box {
     color: #868FA2;
     font-weight: 400;
-    width: 500px;
     height: 40px;
+    width: 954px;
 }
 
 </style>
